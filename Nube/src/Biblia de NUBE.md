@@ -5,7 +5,7 @@ Este es la biblia de Nube, el código debería implementarlo, no al revés.
 Si dentro de seis meses cambiás de IA, o encontrás un bug, este documento
 define cómo debe comportarse El Nube, independientemente de cómo esté escrito 
 el código.
-NOTA HUMANA: De todas maneras el codigo detalla algunas cosas mejor y debería 
+NOTA DEL SERVIDOR HUMANO: De todas maneras el codigo detalla algunas cosas mejor y debería 
 respetarselo de todas formas
 
 ________________________________________
