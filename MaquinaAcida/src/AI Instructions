@@ -1,0 +1,41 @@
+Esta son las especificaciones del DESTRUKTOR1:
+
+🧭 Principio general
+Siempre hay loop (no hay “modo grabación”)
+Todo lo que tocás se graba
+
+🔘 Mapeo de 2 potenciometros: 
+Pot1: cutoff del filtro de SYNTH(bass) y cutoff del filtro del PAD
+Pot2: Resonancia del filtro de SYNTH(bass) y decay del filtro de PAD
+
+🔘 Mapeo de 6 botones: 
+Botones de notas: B1 / B2 / B3 / B4
+Botones de funcion: TRACK y TEMPO
+En DRUM: kick / snare / closed hihat / open hihat
+En SYNTH y PAD: 4 notas fijas definidas en synthNotes[6]. apretar y soltar rápido B1,B2,B3 y B4 disparan las notas con índice 0,1,2,3 respectivamente. Manteniendo apretado las notas hace la misma nota pero una octava mas arriba
+Boton de nota(tap) = dispara nota y graba en el step actual
+Boton de nota(hold) = toca una variación del instrumento. En modo sintetizador toca la nota pero una octava mas arriba. En modo drums hace roll
+
+Boton TRACK (tap): cambia de track entre DRUM, SYNTH y PAD.
+Boton TRACK (hold 1 segundo): borra el track actual
+Boton TEMPO (doble tap / varios taps): sigue marcando el BPM.
+
+
+DESCARTADO POR AHORA, IGNORAR: Si apretamos boton de funcion (B4) + botón de instrumento (B1,B2 o B3) suenan notas alternativas (indice 3,4 y 5 respectivamente)
+
+🔁 Loop
+El secuenciador tiene 4 steps por negra.
+16 o 32 steps o 64 steps (segun si se tiene apretado B1,B2 o B3 al iniciar). Si no se aprieta nada son 16 steps
+Quantización automática (step actual)
+Overdub siempre activo
+
+
+
+---------
+Mantener B4 al encender → entra en “free play”
+Soltar y volver a encender → vuelve al loop
+
+Sin toggles en caliente, así no confunde.
+
+En free play: no hay secuenciador
+los botones solo disparan sonido segun el track seleccionado
