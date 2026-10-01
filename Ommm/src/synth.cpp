@@ -314,7 +314,7 @@ void setLayerComplexity(Layer &l, int complexity)
     l.numOscOnLayer = numOsc;
     l.numLFOsOnLayer = numLfo;
 
-    // Serial.println("Layer complexity set to: " + String(numOsc) + " oscs, " + String(numLfo) + " LFOs");
+    Serial.println("Layer complexity set to: " + String(numOsc) + " oscs, " + String(numLfo) + " LFOs");
 
     if (l.filterType == FILTER_NONE)
     {
