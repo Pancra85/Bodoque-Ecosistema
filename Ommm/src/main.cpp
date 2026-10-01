@@ -34,9 +34,12 @@ void serviceStartupSequence()
     }
     else if (startupPhase == STARTUP_WAIT_CHORUS && now - startupPhaseStartedAt >= EFFECT_WARMUP_MS)
     {
-        
-        loadMemory(0);
         applyEffects();
+        if (isSlotUsed(0))
+        {
+            loadMemory(0);
+        }
+        
         startupPhase = STARTUP_COMPLETE;
     }
 }
@@ -51,7 +54,11 @@ void setup()
     loadEffectsEnabledConfig();
     assignOscIndex();
     setDefaultParameters();
-
+    // for (int i = 0; i < NUM_LAYERS; i++)
+    // {
+    //     setLayerComplexity(layers[i], layers[i].complexity);
+    //     processLayerRebuilds(layers[i]);
+    // }
 
     initControls();
     relockAllPots();
@@ -67,7 +74,10 @@ void setup()
     }
     else
     {
-        loadMemory(0);
+        if (isSlotUsed(0))
+        {
+            loadMemory(0);
+        }
         applyEffects();
         startupPhase = STARTUP_COMPLETE;
     }

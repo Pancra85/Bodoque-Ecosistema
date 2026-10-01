@@ -56,7 +56,7 @@ void getPageLabels(Layer &l, LayerMenuPage page, ParamLabel labels[3])
     {
     case PAGE_PITCH_FILTER_RES:
 
-        labels[0] = {"Res.", l.resonance, 1};
+        labels[0] = {"Res", l.resonance, 1};
         labels[1] = {"Nota", l.baseNote, 1};
         labels[2] = {"C.Off", l.filterFreq, 0};
         break;
@@ -71,9 +71,9 @@ void getPageLabels(Layer &l, LayerMenuPage page, ParamLabel labels[3])
         if (l.harmonyMode == HARMONY_INTERVAL)
             labels[2] = {"2Osc", (float)l.harmonyIntervalSemitones, 1};
         else if (l.harmonyMode == HARMONY_SEQUENCE)
-            labels[2] = {"Scale", (float)l.harmonyParam, 0};
+            labels[2] = {"Escal", (float)l.harmonyParam, 0};
         else if (l.harmonyMode == HARMONY_CHORD)
-            labels[2] = {"Chord", (float)l.harmonyParam, 0};
+            labels[2] = {"Acord", (float)l.harmonyParam, 0};
         else
             labels[2] = {"", 0.0f, 0};
         break;
@@ -450,7 +450,7 @@ void updateOLED()
         display.print("FX DESABILITADO");
         display.setCursor(10, 27);
         display.print("MAS OSCILADORES (");
-        display.print(MAX_OSCS_PER_LAYER);
+        display.print(MAX_OSCS_PER_LAYER_NOFX);
         display.print(")");
     }
     else

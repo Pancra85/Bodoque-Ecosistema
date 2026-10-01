@@ -79,14 +79,14 @@ void setDefaultParameters()
 // para siempre una vez llamada — no hace falta volver a llamarla nunca más.
 void assignOscIndex()
 {
-    const int maxOscsPerLayer = effectsEnabledConfig ? MAX_OSCS_PER_LAYER_NOFX : MAX_OSCS_PER_LAYER;
+    const int maxOscsPerLayer = effectsEnabledConfig ? MAX_OSCS_PER_LAYER_WITHFX : MAX_OSCS_PER_LAYER_NOFX;
     int nextOsc = 0;
     for (int c = 0; c < NUM_LAYERS; c++)
     {
         layers[c].oscBase = nextOsc;
         nextOsc += maxOscsPerLayer;
         layers[c].lfoBase = nextOsc;
-        nextOsc += MAX_LFOS_PER_LAYER;
+        nextOsc += MAX_LFOS_PER_LAYER_NOFX;
     }
 }
 
@@ -180,7 +180,7 @@ void applyLayerParams(Layer &l)
 // estrategias (1 a 1, round-robin, todos al mismo, etc.)
 void assignLfoRouting(Layer &l)
 {
-    for (int i = 0; i < MAX_OSCS_PER_LAYER; i++)
+    for (int i = 0; i < MAX_OSCS_PER_LAYER_NOFX; i++)
     {
         l.lfoAssignment[i][0] = -1;
         l.lfoAssignment[i][1] = -1;
@@ -203,7 +203,7 @@ void rebuildLayer(Layer &l)
 {
     assignLfoRouting(l);
 
-    const int maxOscsPerLayer = effectsEnabledConfig ? MAX_OSCS_PER_LAYER_NOFX : MAX_OSCS_PER_LAYER;
+    const int maxOscsPerLayer = effectsEnabledConfig ? MAX_OSCS_PER_LAYER_WITHFX : MAX_OSCS_PER_LAYER_NOFX;
     for (int i = 0; i < maxOscsPerLayer; i++)
     {
         if (i < l.numOscOnLayer && l.active == 1)
@@ -221,7 +221,7 @@ void rebuildLayer(Layer &l)
     }
 
     // LFOs sin cambios respecto a lo que ya tenías
-    for (int i = 0; i < MAX_LFOS_PER_LAYER; i++)
+    for (int i = 0; i < MAX_LFOS_PER_LAYER_NOFX; i++)
     {
         amy_event e = amy_default_event();
         e.osc = l.lfoBase + i;
@@ -269,7 +269,7 @@ void setLayerComplexity(Layer &l, int complexity)
         lfoDepthFrac = 0.0f;
     if (lfoDepthFrac > 1.0f)
         lfoDepthFrac = 1.0f;
-    const int maxOscsPerLayer = effectsEnabledConfig ? MAX_OSCS_PER_LAYER_NOFX : MAX_OSCS_PER_LAYER;
+    const int maxOscsPerLayer = effectsEnabledConfig ? MAX_OSCS_PER_LAYER_WITHFX : MAX_OSCS_PER_LAYER_NOFX;
 
     // --- Cantidad de osciladores ---
     int numOsc;
@@ -292,13 +292,13 @@ void setLayerComplexity(Layer &l, int complexity)
     }
     else if (complexity < ADC_MAX / 2)
     {
-        // Sube de 1 a MAX_LFOS_PER_LAYER entre ADC_MAX/3 y ADC_MAX/2
+        // Sube de 1 a MAX_LFOS_PER_LAYER_NOFX entre ADC_MAX/3 y ADC_MAX/2
         float frac = (complexity - ADC_MAX / 3) / (float)(ADC_MAX / 2 - ADC_MAX / 3);
-        numLfo = 1 + (int)(frac * (MAX_LFOS_PER_LAYER - 1));
+        numLfo = 1 + (int)(frac * (MAX_LFOS_PER_LAYER_NOFX - 1));
     }
     else
     {
-        numLfo = MAX_LFOS_PER_LAYER;
+        numLfo = MAX_LFOS_PER_LAYER_NOFX;
     }
 
     // Clamps de seguridad (por redondeos en los cálculos de arriba)
@@ -306,8 +306,8 @@ void setLayerComplexity(Layer &l, int complexity)
         numOsc = maxOscsPerLayer;
     if (numOsc < 0)
         numOsc = 0;
-    if (numLfo > MAX_LFOS_PER_LAYER)
-        numLfo = MAX_LFOS_PER_LAYER;
+    if (numLfo > MAX_LFOS_PER_LAYER_NOFX)
+        numLfo = MAX_LFOS_PER_LAYER_NOFX;
     if (numLfo < 0)
         numLfo = 0;
 
@@ -318,19 +318,19 @@ void setLayerComplexity(Layer &l, int complexity)
 
     if (l.filterType == FILTER_NONE)
     {
-        for (int i = 0; i < MAX_OSCS_PER_LAYER; i++)
+        for (int i = 0; i < MAX_OSCS_PER_LAYER_NOFX; i++)
             l.oscs[i].lfoTarget = LFO_TARGET_PITCH;
     }
     else
     {
-        for (int i = 0; i < MAX_OSCS_PER_LAYER; i++)
+        for (int i = 0; i < MAX_OSCS_PER_LAYER_NOFX; i++)
             l.oscs[i].lfoTarget = (i % 2 == 0) ? LFO_TARGET_PITCH : LFO_TARGET_FILTER;
     }
     // El detune crece con la complejidad: cuanto más "compleja" la capa, más desafinada
     float detuneStep = complexityFrac * MAX_DETUNE_STEP;
     detuneStep = min(detuneStep, MAX_DETUNE_STEP / 3); // para que en un tercio para de desafinar, que es cuando se activan los lfos
     // Serial.println("Detune step: " + String(detuneStep));
-    for (int i = 0; i < MAX_OSCS_PER_LAYER; i++)
+    for (int i = 0; i < MAX_OSCS_PER_LAYER_NOFX; i++)
     {
         if (i < numOsc)
         {
@@ -363,11 +363,11 @@ void setLayerComplexity(Layer &l, int complexity)
         }
     }
 
-    for (int i = 0; i < MAX_LFOS_PER_LAYER; i++)
+    for (int i = 0; i < MAX_LFOS_PER_LAYER_NOFX; i++)
     {
         if (i < numLfo)
         {
-            int globalLfoSlot = l.layerNumb * MAX_LFOS_PER_LAYER + i;
+            int globalLfoSlot = l.layerNumb * MAX_LFOS_PER_LAYER_NOFX + i;
             l.lfos[i].frequency = 0.1f + globalLfoSlot * 0.137f; // paso "raro" a propósito, evita relaciones simples entre LFOs
             l.lfos[i].active = true;
         }
@@ -415,7 +415,7 @@ void applyEffects()
     e.chorus_level = effectsEnabledConfig ? audioEffects.chorusLevel : 0.0f;
     e.chorus_depth = effectsEnabledConfig ? audioEffects.chorusDepth : 0.0f;
     e.chorus_lfo_freq = effectsEnabledConfig ? audioEffects.chorusLfoFreq : 0.0f;
-    audioEffects.chorusMaxDelay = 40;
+    audioEffects.chorusMaxDelay = 100;
     e.chorus_max_delay = effectsEnabledConfig ? audioEffects.chorusMaxDelay : 0.0f;
 
     e.dist_clip = audioEffects.distType == 0 ? 1 : 0;

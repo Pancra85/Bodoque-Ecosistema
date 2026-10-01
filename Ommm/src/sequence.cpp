@@ -204,18 +204,18 @@ void assignHarmonyNotes(Layer &l)
 {
     if (l.harmonyMode == HARMONY_INTERVAL)
     {
-        for (int i = 0; i < MAX_OSCS_PER_LAYER; i++)
+        for (int i = 0; i < MAX_OSCS_PER_LAYER_NOFX; i++)
             l.noteOffsets[i] = (i % 2 == 0) ? 0.0f : l.harmonyIntervalSemitones;
     }
     else if (l.harmonyMode == HARMONY_CHORD)
     {
         const ChordDef &chord = CHORDS[l.harmonyParam % NUM_CHORD_TYPES];
-        for (int i = 0; i < MAX_OSCS_PER_LAYER; i++)
+        for (int i = 0; i < MAX_OSCS_PER_LAYER_NOFX; i++)
             l.noteOffsets[i] = (float)chord.notes[i % chord.numNotes];
     }
     else
     {
-        for (int i = 0; i < MAX_OSCS_PER_LAYER; i++)
+        for (int i = 0; i < MAX_OSCS_PER_LAYER_NOFX; i++)
             l.noteOffsets[i] = 0.0f;
     }
 }

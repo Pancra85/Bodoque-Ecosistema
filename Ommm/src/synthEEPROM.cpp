@@ -150,7 +150,11 @@ bool loadEffectsEnabledConfig()
     EffectsConfigData data;
     EEPROM.get(effectsConfigAddress(), data);
     if (data.magic != EFFECTS_CONFIG_MAGIC)
+    {
+        effectsEnabledConfig = true;
+        effectsEnabledSelection = true;
         return false;
+    }
 
     effectsEnabledConfig = data.enabled != 0;
     effectsEnabledSelection = effectsEnabledConfig;

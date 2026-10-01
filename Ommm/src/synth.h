@@ -3,10 +3,10 @@
 
 // --- Límites de compilación (presupuesto de osciladores) ---
 #define NUM_LAYERS 2
-#define MAX_OSCS_PER_LAYER 3 // máximo de osciladores audibles por capa
-#define MAX_LFOS_PER_LAYER 3  // máximo de LFOs de pitch por capa
-#define MAX_OSCS_PER_LAYER_NOFX 2 // Con FX desabilitados: máximo de osciladores audibles por capa
-#define MAX_LFOS_PER_LAYER_NOFX 3  //Con FX desabilitados: máximo de LFOs de pitch por capa
+#define MAX_OSCS_PER_LAYER_NOFX 3 // máximo de osciladores audibles por capa
+#define MAX_LFOS_PER_LAYER_NOFX 3  // máximo de LFOs de pitch por capa
+#define MAX_OSCS_PER_LAYER_WITHFX 2 // Con FX desabilitados: máximo de osciladores audibles por capa
+#define MAX_LFOS_PER_LAYER_WITHFX 3  //Con FX desabilitados: máximo de LFOs de pitch por capa
 #define COMPLEXITY_MAX 1023
 
 // Rango de del oscilador
@@ -58,12 +58,12 @@ struct Layer
     int numLFOsOnLayer;
 
     // --- Slots físicos (tamaño fijo = máximo posible) ---
-    Oscillator oscs[MAX_OSCS_PER_LAYER];
-    Oscillator lfos[MAX_LFOS_PER_LAYER];
+    Oscillator oscs[MAX_OSCS_PER_LAYER_NOFX];
+    Oscillator lfos[MAX_LFOS_PER_LAYER_NOFX];
 
     // qué LFO (índice LOCAL, 0..numLFOsOnLayer-1) modula a cada oscilador.
     //  -1 = ese oscilador no tiene modulación de pitch.
-    int lfoAssignment[MAX_OSCS_PER_LAYER][2]; // [i][0]=slot pitch, [i][1]=slot filtro
+    int lfoAssignment[MAX_OSCS_PER_LAYER_NOFX][2]; // [i][0]=slot pitch, [i][1]=slot filtro
     // --- Índices globales asignados en AMY ---
     int oscBase; // índice del primer oscilador audible de esta capa (siempre 0?)
     int lfoBase; // índice del primer LFO de esta capa
@@ -90,7 +90,7 @@ struct Layer
 
     bool harmonyNeedsRebuild;                // flag para saber si hay que re-armar la armonía (cuando cambian los parámetros)
     float harmonyIntervalSemitones;          // 100% libre, controlado a mano por un pote
-    float noteOffsets[MAX_OSCS_PER_LAYER];   // semitonos por oscilador (interval/chord)
+    float noteOffsets[MAX_OSCS_PER_LAYER_NOFX];   // semitonos por oscilador (interval/chord)
     float sequenceNotes[MAX_SEQUENCE_STEPS]; // ahora float, para microtonal // semitonos por paso (sequence)
     uint16_t sequenceBaseTag;                // tags reservados para esta capa
     bool sequenceSounding;                   // para saber si hay que cortar o no

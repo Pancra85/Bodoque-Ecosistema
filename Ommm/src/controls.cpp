@@ -338,7 +338,7 @@ void readPots()
                 audioEffects.chorusLfoFreq = mapped; // Velocidad del LFO en Hz
                 changedFX = true;
             }
-            if (readPot(POT_PIN[2], potState[2], 0.0f, 20.0f, mapped))
+            if (readPot(POT_PIN[2], potState[2], 0.0f, 1.0f, mapped))
             {
                 audioEffects.chorusDepth = mapped; // Profundidad del LFO
                 changedFX = true;
