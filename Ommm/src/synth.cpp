@@ -314,7 +314,7 @@ void setLayerComplexity(Layer &l, int complexity)
     l.numOscOnLayer = numOsc;
     l.numLFOsOnLayer = numLfo;
 
-    Serial.println("Layer complexity set to: " + String(numOsc) + " oscs, " + String(numLfo) + " LFOs");
+    // Serial.println("Layer complexity set to: " + String(numOsc) + " oscs, " + String(numLfo) + " LFOs");
 
     if (l.filterType == FILTER_NONE)
     {
@@ -415,7 +415,7 @@ void applyEffects()
     e.chorus_level = effectsEnabledConfig ? audioEffects.chorusLevel : 0.0f;
     e.chorus_depth = effectsEnabledConfig ? audioEffects.chorusDepth : 0.0f;
     e.chorus_lfo_freq = effectsEnabledConfig ? audioEffects.chorusLfoFreq : 0.0f;
-    audioEffects.chorusMaxDelay = 100;
+    audioEffects.chorusMaxDelay = 200;
     e.chorus_max_delay = effectsEnabledConfig ? audioEffects.chorusMaxDelay : 0.0f;
 
     e.dist_clip = audioEffects.distType == 0 ? 1 : 0;
