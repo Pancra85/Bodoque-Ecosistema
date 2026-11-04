@@ -5530,6 +5530,16 @@
 		)
 		(uuid "6d3abffd-ef98-4b88-acc1-1a5ea35cb084")
 	)
+	(text "< --- probar de meter una resi de 20 ohms aca LPF"
+		(exclude_from_sim no)
+		(at 439.42 193.802 0)
+		(effects
+			(font
+				(size 5 5)
+			)
+		)
+		(uuid "757327fb-c765-40c1-bff4-bcaba13c5e21")
+	)
 	(text "Voltage Regulator 3.3V"
 		(exclude_from_sim no)
 		(at 84.836 72.644 0)
@@ -5544,15 +5554,25 @@
 		)
 		(uuid "76a63b79-4e2e-4050-96d1-b92a106bb0c4")
 	)
-	(text "SI A LA RESISTENCIA?\nSI O SI UN CAPACITOR DE 470uF en 3.3V"
+	(text "SI A LA RESISTENCIA?\nSI O SI UN CAPACITOR DE 470uF en 3.3V\nEstudiar si puede ser SMD, pero mepa conviene THT por $$$"
 		(exclude_from_sim no)
-		(at 267.208 209.042 0)
+		(at 244.602 217.932 0)
 		(effects
 			(font
 				(size 3 3)
 			)
 		)
 		(uuid "849869fe-86db-4986-a985-ba2b10fc9f9b")
+	)
+	(text "< --- probar de meter una resi de 10 o 20 ohms aca LPF"
+		(exclude_from_sim no)
+		(at 514.858 264.16 0)
+		(effects
+			(font
+				(size 5 5)
+			)
+		)
+		(uuid "8b22a288-a919-49e1-9337-6e183966a3aa")
 	)
 	(text "Controles"
 		(exclude_from_sim no)
@@ -5605,6 +5625,16 @@
 			(justify left)
 		)
 		(uuid "a7bf9ad1-96ef-433a-80fc-69cd9f5e1315")
+	)
+	(text "la posta seria \n(Ferrite Bead) 600 ohms @ 100{MHz} o un inductores de 10uH 100uH "
+		(exclude_from_sim no)
+		(at 487.172 203.962 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c6bfe5e5-3f67-4f2e-8611-05bb6acd71e4")
 	)
 	(text "Buttons"
 		(exclude_from_sim no)
@@ -5667,6 +5697,16 @@
 			)
 		)
 		(uuid "f15c89e8-86b5-4782-acf5-4908d6ac8e1b")
+	)
+	(text "sin la resi hace mas ruido, capaz mas resi menos ruido?"
+		(exclude_from_sim no)
+		(at 490.22 199.898 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f1811f94-30ce-4b17-b6c7-e7586a6837d6")
 	)
 	(text "audio PWM \nfiltrada (opc)"
 		(exclude_from_sim no)
@@ -17498,7 +17538,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -29706,7 +29746,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -37329,7 +37369,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -37344,7 +37384,7 @@
 				)
 			)
 		)
-		(property "Value" "SolderJumper_2_Bridged"
+		(property "Value" ""
 			(at 302.26 276.86 0)
 			(hide yes)
 			(show_name no)
@@ -38873,7 +38913,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)

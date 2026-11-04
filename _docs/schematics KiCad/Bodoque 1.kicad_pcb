@@ -3596,7 +3596,7 @@
 			)
 		)
 		(zone_connect 1)
-		(attr exclude_from_bom allow_soldermask_bridges)
+		(attr allow_soldermask_bridges)
 		(net_tie_pad_groups "1, 2")
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
@@ -33730,7 +33730,7 @@
 			(at 1.9 -0.1 90)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "f7eca8d8-040a-4a13-98ec-2497daa541cc")
+			(uuid "5877e41c-295d-4f85-845b-db6841e58102")
 			(effects
 				(font
 					(size 1 1)
@@ -33741,7 +33741,7 @@
 		(property "Value" "22pF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
-			(uuid "81a0552b-4294-4879-a845-a9af82ed1375")
+			(uuid "5bf5bb6a-3145-4228-b7ed-05e615b398a4")
 			(effects
 				(font
 					(size 1 1)
@@ -33754,7 +33754,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "1021099d-67c7-4659-82b3-33346419d523")
+			(uuid "56d3ee97-4792-46e2-bdae-4d0d5b3596c6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -33767,7 +33767,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "6bd26803-b5d5-486e-9c8e-c041451ef734")
+			(uuid "59e64d58-a897-45f5-a41a-da07453be2b8")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -35609,7 +35609,7 @@
 			)
 		)
 		(zone_connect 1)
-		(attr exclude_from_bom allow_soldermask_bridges)
+		(attr allow_soldermask_bridges)
 		(net_tie_pad_groups "1, 2")
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
@@ -38664,7 +38664,7 @@
 			)
 		)
 		(zone_connect 1)
-		(attr exclude_from_bom allow_soldermask_bridges)
+		(attr allow_soldermask_bridges)
 		(net_tie_pad_groups "1, 2")
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
@@ -43140,7 +43140,7 @@
 				)
 			)
 		)
-		(property "Value" "SolderJumper_2_Bridged"
+		(property "Value" "~"
 			(at 0 1.9 90)
 			(layer "F.Fab")
 			(uuid "ff033e8c-0023-44de-90c5-bd9abb8dfcd2")
@@ -43188,7 +43188,7 @@
 			)
 		)
 		(zone_connect 1)
-		(attr exclude_from_bom allow_soldermask_bridges)
+		(attr allow_soldermask_bridges)
 		(net_tie_pad_groups "1, 2")
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_poly
@@ -93978,7 +93978,7 @@
 	(footprint "LOGO"
 		(layer "B.Cu")
 		(uuid "56c5b959-1c51-444a-b849-d99dacefe6e5")
-		(at 275.45 96.8 180)
+		(at 308.35 99.2 180)
 		(property "Reference" "G***"
 			(at 0 0 0)
 			(layer "B.SilkS")
@@ -115048,12 +115048,12 @@
 	(footprint "LOGO"
 		(layer "B.Cu")
 		(uuid "9ce30724-8a63-4857-99ad-1d42f7f532d7")
-		(at 217.8 97.4 180)
+		(at 250.7 99.8 180)
 		(property "Reference" "G***"
 			(at 0 0 0)
 			(layer "B.SilkS")
 			(hide yes)
-			(uuid "bc57529b-451d-4df9-945d-81f45b52555d")
+			(uuid "19383789-31c5-494b-aecc-c3778dba9ed2")
 			(effects
 				(font
 					(size 1.5 1.5)
@@ -115066,7 +115066,7 @@
 			(at 0.75 0 0)
 			(layer "B.SilkS")
 			(hide yes)
-			(uuid "091f9f7d-caa7-4507-aecd-dd2984de790c")
+			(uuid "22a077ba-9501-4a17-836d-ace3bb2a5968")
 			(effects
 				(font
 					(size 1.5 1.5)
@@ -115079,7 +115079,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "ab961fe6-ccd0-47d3-8fbf-8f0d8368484d")
+			(uuid "d5f7271d-de68-40f3-b438-2058fdc4b487")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -115091,7 +115091,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "70da3ef6-b665-4507-9b49-2359c6e2b513")
+			(uuid "9bf0cfb7-1951-4438-bc50-5b7a8a561260")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -136293,7 +136293,7 @@
 	(footprint "LOGO"
 		(layer "B.Cu")
 		(uuid "c0ccbf2e-bfbe-4c5e-84d1-65c229df785b")
-		(at 229.798979 153.09203)
+		(at 247.074186 152.814472)
 		(property "Reference" "G***"
 			(at 0 0 180)
 			(layer "B.SilkS")
@@ -217886,6 +217886,86 @@
 		(embedded_fonts no)
 	)
 	(gr_line
+		(start 173.1 93.5)
+		(end 188.9 86.6)
+		(stroke
+			(width 0.4)
+			(type solid)
+		)
+		(layer "B.Cu")
+		(uuid "c4482839-fd31-4c7a-ab64-6be9597ee9a4")
+	)
+	(gr_line
+		(start 188.9 86.6)
+		(end 190.4 89.1)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "B.Cu")
+		(uuid "6f2f8265-5fe5-4262-b8c3-b241bda1a251")
+	)
+	(gr_line
+		(start 190.4 89.1)
+		(end 180.7 93.8)
+		(stroke
+			(width 0.4)
+			(type solid)
+		)
+		(layer "B.Cu")
+		(uuid "f1a3a5dd-fd03-4914-a94a-e07d3c236705")
+	)
+	(gr_line
+		(start 190.4 89.1)
+		(end 195.2 86.5)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "B.Cu")
+		(uuid "0c538ffb-c6fd-4bc4-abf0-547ecf70a32a")
+	)
+	(gr_line
+		(start 191.1 88.5)
+		(end 190.7 87.8)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "B.Cu")
+		(uuid "f147fa99-82e6-4217-b8e9-ea486c771341")
+	)
+	(gr_line
+		(start 191.3 88)
+		(end 190.5 88.4)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "B.Cu")
+		(uuid "8f46eb3c-8cf2-4c42-a453-e2fd620b6299")
+	)
+	(gr_line
+		(start 193.8 84)
+		(end 188.9 86.6)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "B.Cu")
+		(uuid "a896bbd3-d6dc-4930-9381-8d1454d5b6ed")
+	)
+	(gr_line
+		(start 195.2 86.5)
+		(end 193.8 84)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "B.Cu")
+		(uuid "a6a22240-2dfb-41e6-8314-dcb7a78df874")
+	)
+	(gr_line
 		(start 121.95 80.15)
 		(end 122.35 80.15)
 		(stroke
@@ -218854,6 +218934,45 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "ojo tamaño de OLED, la plaqueta negra es mas chiquita que la azul"
+		(at 7.7 140.9 0)
+		(layer "B.Cu")
+		(uuid "67502253-31f5-4260-a8d4-2e4893f881f1")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "marcar lugar donde va el speaker, para qeu no choque con el mic o con el OLED"
+		(at 72.1 91.3 0)
+		(layer "B.Cu")
+		(uuid "76b319e2-7914-4f8c-b146-a69ab51287f1")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "cap electrolítico de 220uF\nbaja ruido en parlante y audioOut"
+		(at 189.7 80.4 0)
+		(layer "B.Cu")
+		(uuid "e53cdde4-ccbe-46c0-a77e-b0baf22ebb4b")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "bendita sea esta info"
 		(at 119.46138 78.874755 90)
 		(layer "F.SilkS" knockout)
@@ -219177,10 +219296,36 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "OLED tapa el led_estrella"
+		(at 11.9 137.6 0)
+		(layer "Cmts.User")
+		(uuid "777eaa18-d146-436a-9055-48d1ac36ad84")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "mas grande pads de speaker y bat asi no se rompen facil"
-		(at 30.3 99.3 0)
+		(at 23.7 100.7 0)
 		(layer "Cmts.User")
 		(uuid "d7795c40-c9de-45f0-bd3c-3b9078ee79a2")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "hacer un agujero grande para poner una cadenita --->"
+		(at 41.7 156.2 0)
+		(layer "Cmts.User")
+		(uuid "46b9644b-fb44-42bf-a73d-bdc5efb5d57d")
 		(effects
 			(font
 				(size 1.5 1.5)
@@ -219207,19 +219352,6 @@
 		(at 48 64.8 0)
 		(layer "Cmts.User")
 		(uuid "7accbe3e-823b-484b-ad53-9bf41744c738")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "OLED tapa el led_estrella"
-		(at 56.7 137.9 0)
-		(layer "Cmts.User")
-		(uuid "777eaa18-d146-436a-9055-48d1ac36ad84")
 		(effects
 			(font
 				(size 1.5 1.5)
@@ -232876,12 +233008,28 @@
 		(uuid "ccffed19-4c2f-4012-8a67-ac309160e891")
 	)
 	(segment
+		(start 147.11 76.492871)
+		(end 146.594129 76.492871)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "Net-(C3-Pad2)")
+		(uuid "cfca3746-d80a-4a37-b9b2-b57dd3d51c39")
+	)
+	(segment
 		(start 149.398162 76.88)
 		(end 147.497129 76.88)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "Net-(C3-Pad2)")
 		(uuid "d7d9dabf-ce20-46db-9806-5d2892a4e1d5")
+	)
+	(segment
+		(start 146.594129 76.492871)
+		(end 146.587 76.5)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "Net-(C3-Pad2)")
+		(uuid "d90eb1a6-9f42-40d8-b75e-3e7063e3076d")
 	)
 	(segment
 		(start 144.745 89.471)
