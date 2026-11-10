@@ -306,8 +306,8 @@ static void handleButtonB(unsigned long now)
 
 static void handleButtonC()
 {
-  if (!buttonC.wasReleased())
-    return;
+  if (!buttonC.wasReleased() || buttonC.holdUsed())
+    return; // holdUsed: la pulsacion la consumio un combo (C nunca usa su hold)
 
   unsigned long now = millis();
   if (now - buttonC.pressTime() >= 1000)
