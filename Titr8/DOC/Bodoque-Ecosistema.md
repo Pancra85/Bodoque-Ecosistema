@@ -48,7 +48,7 @@ The RP2040 has no FPU, so the code avoids float math and division in the audio p
 | **Atmos** | AMY | Generative ambient synth with 4 engines: ATMOS, CRYSTAL, PULSE and TEXTURE. |
 | **909pt** | AMY | Drum machine using the AMY 909 kit and a 16-step sequencer. |
 | **MaquinaAcida** | Mozzi | Groovebox with DRUM, SYNTH (bass) and PAD tracks, always looping with overdub. |
-| **Titr8** | Mozzi | MaquinaAcida fork being extended (Bodoque V1 only). A/B tap transposes the 4 note buttons through 12 scale degrees, A double tap = previous instrument, B double tap = next (■ Drums, ▲ Bass, ● Pads, ✕ FM Lead), hold A clears the track, hold B toggles delay, C taps tempo. See [Titr8-Refactor.md](Titr8-Refactor.md). |
+| **Titr8** | Mozzi | MaquinaAcida fork being extended (Bodoque V1 only). A/B tap transposes the 4 note buttons through 12 scale degrees, A double tap = previous instrument, B double tap = next (■ Drums, ▲ Bass, ● Pads, ✕ FM Lead), hold A clears the track, hold B toggles delay, C taps tempo. See [Titr8-Refactor.md](Titr8-Refactor.md); to modify it or start a new program from it, [Titr8-Guide.md](Titr8-Guide.md). |
 | **Nube** | Mozzi | "El Nube", a slowly evolving ambient organism where the user *sows clouds* instead of playing notes. |
 | **MidiControl** | — | USB MIDI controller: the buttons send notes and the pots send CCs across 3 pages (A/B/C). |
 

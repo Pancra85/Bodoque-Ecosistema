@@ -46,8 +46,8 @@ private:
 };
 
 extern Button noteButtons[NUM_NOTES];
-extern Button buttonA; // transponer a la izquierda / instrumento siguiente / borrar track
-extern Button buttonB; // transponer a la derecha / instrumento anterior / delay
+extern Button buttonA; // transponer a la izquierda / instrumento anterior / borrar track
+extern Button buttonB; // transponer a la derecha / instrumento siguiente / delay
 extern Button buttonC; // tap tempo
 
 void inputSetup();

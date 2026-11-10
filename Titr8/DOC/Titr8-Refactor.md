@@ -58,6 +58,16 @@ These are the names printed on the panel. The docs use them from here on. The co
 | **Delay LED** (star) | `LEDESTRELLA_PIN` | Delay on |
 | **Power LED** | — | Board on (not driven by the firmware) |
 
+### Pots
+
+Read every control cycle (`potValue(0..2)`, 0–1023). Turning right raises the value.
+
+| Pot | Pin | Code | Controls |
+|---|---|---|---|
+| **Pot 1** | A3 | `potValue(0)` → `voicesUpdateControl(pot1, …)` | **Filter cutoff** of the bass low-pass (80–2000 Hz, plus up to ~500 Hz from the bass envelope). The **pad low-pass follows the same cutoff**. **Lead brightness** (FM depth). |
+| **Pot 2** | A1 | `potValue(1)` → `voicesUpdateControl(…, pot2)` | **Filter resonance** of the bass (more resonance to the right). **Pad decay** (1–1600 ms). **Lead note length** (80–1500 ms). The pad's resonance is fixed. |
+| **Pot 3** | A0 | `potValue(2)` → `voicesSetOutputGain()` in `controlsUpdate()` | **Volume** on the first half, **drive** (soft clipping) on the second half. |
+
 ### Pin map
 
 From `src/hardwarePins.*`:
@@ -68,7 +78,7 @@ From `src/hardwarePins.*`:
 | Button A (`BUTTON_A_PIN`) | 0 | See panel names above |
 | Button B (`BUTTON_B_PIN`) | 24 | See panel names above |
 | Button C (`BUTTON_C_PIN`) | 25 | Tap tempo |
-| 3 pots | A3, A1, A0 | Pot 1: bass cutoff + lead brightness. Pot 2: resonance + pad decay + lead length. Pot 3: volume/drive |
+| 3 pots | A3, A1, A0 | See **Pots** above |
 | LEDs I–IV | 1, 3, 6, 8 | Pulse on each quarter note |
 | ■ ▲ ● ✕ LEDs | 11, 10, 9, 15 | Selected instrument (Drums, Bass, Pads, Lead) |
 | (✕ LED source) | 15 | Confirmed in the PCB file (`D14` sits on net `/GPIO15`, next to `D11–D13` on GPIO 9/10/11). 909pt and Atmos already drive it as the 4th LED: `LED_BUTTON_PIN = {11, 10, 9, 15}` |
@@ -106,7 +116,7 @@ From `src/hardwarePins.*`:
 
 > §4 describes the code as it is now, including the changes made after the refactor. Those changes are listed in §8.
 
-### 4.3 New structure (`C:\Titr8\src`)
+### 4.3 New structure (`Titr8\src`)
 
 | File | Responsibility | Main API |
 |---|---|---|
@@ -221,7 +231,7 @@ The **absolute scale degree** (0..11) is recorded, not the button. Transposing d
 | 1 | 5–8 | Slow blink (500 ms period, ~2 Hz) |
 | 2 | 9–12 | Fast blink (166 ms period, ~6 Hz) |
 
-  Periods are in `BANK_BLINK_PERIOD_MS` (`ui.cpp`). The blink restarts **on** whenever the bank or instrument changes, so the change is visible at once. It also blinks on Drums, even though Drums ignore the bank, so a transpose always gives feedback and you can see where the melodic instruments will be. LEDs I–IV are not touched.
+  Periods are in `BANK_BLINK_PERIOD_MS` (`ui.cpp`). The blink restarts **on** whenever the bank or instrument changes, so the change is visible at once. The ■ Drums LED is always steady (A/B taps do nothing there). LEDs I–IV are not touched.
 
 ### 4.10 Lead: FM pluck / bell (`voices.cpp`)
 
@@ -284,7 +294,9 @@ Two-operator FM: a sine **modulator** shifts the phase of a sine **carrier** (`l
 - [x] Synced `C:\Titr8` → repo `Bodoque-Ecosistema\Titr8` (2026-11-10, without `.pio`/`.vscode`). Committed file by file on `feature/titr8` and pushed.
 - [x] Repo moved from F: to `C:\code\pico\Bodoque-Ecosistema` (2026-11-10).
 - [ ] Open a PR for `feature/titr8`.
-- [ ] Decide whether to retire `C:\Titr8` and build from the repo's `Titr8` folder.
+- [x] Retired `C:\Titr8`: the repo's `Titr8` folder is the only working copy (2026-11-10).
+- [x] A/B tweaks (instrument direction, transpose reset, no transpose on Drums) built and tested (2026-11-10).
+- [x] Beginner guide written: [Titr8-Guide.md](Titr8-Guide.md).
 - [ ] Delete the old copy on F: once the C: copy is confirmed.
 - [x] New A/B layout: transpose by banks of 4 notes, double tap to change instrument, hold A to clear, hold B for delay (§8). **Built and tested** (2026-11-10).
 - [ ] Decide what to do about issues #1–#4.
@@ -339,3 +351,8 @@ Code changes:
 - **No transpose on Drums:** tapping A or B on Drums does nothing, so the ■ LED no longer starts blinking.
 - `controls.cpp`: `shiftTrack()` sets `noteBank = 0` and calls `uiSetNoteBank(0)` before `uiShowTrack()`; `shiftNoteBank()` returns early on `TRACK_DRUM`; the double-tap cases no longer undo the first tap by hand (the reset covers it).
 - Docs moved from `Bodoque-Documentation/` (git-ignored) to `Titr8/DOC/` (tracked). `C:\Titr8` retired; the repo's `Titr8` folder is the only working copy.
+
+### 2026-11-10: Guide, pot docs, C ignores consumed presses
+
+- New beginner guide: [Titr8-Guide.md](Titr8-Guide.md). Pots documented in §2.
+- `handleButtonC()` now ignores a release whose press a combo consumed (`holdUsed()`). Before, using C as a combo modifier would also have sent a tempo tap. No change today: the combo table is empty and nothing else uses C's hold.
