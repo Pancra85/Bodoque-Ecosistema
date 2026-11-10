@@ -175,13 +175,14 @@ void controlsRecordRolls(uint8_t step)
 }
 
 // ======================= Botones A, B y C =======================
-// A: tap = transponer a la izquierda, doble tap = instrumento siguiente, hold = borrar track
-// B: tap = transponer a la derecha,   doble tap = instrumento anterior,  hold = delay
+// A: tap = transponer a la izquierda, doble tap = instrumento anterior,  hold = borrar track
+// B: tap = transponer a la derecha,   doble tap = instrumento siguiente, hold = delay
 // C: tap tempo
 //
 // El tap transpone apenas se suelta el boton (sin esperar a ver si viene un
-// segundo tap). Si llega el segundo tap, se deshace esa transposicion y se
-// cambia de instrumento.
+// segundo tap). Si llega el segundo tap se cambia de instrumento, y al cambiar
+// la transposicion vuelve al banco 0 (notas 1-4). DRUM no transpone: ahi el tap
+// no hace nada y el LED no cambia.
 
 static const unsigned long DOUBLE_TAP_MS = 350; // entre la 1ra y la 2da soltada
 
@@ -225,6 +226,8 @@ static FunctionEvent readFunctionButton(Button &button, TapState &tap, unsigned 
 
 static void shiftNoteBank(int8_t direction)
 {
+  if (currentTrack == TRACK_DRUM)
+    return; // los drums no transponen
   noteBank = (noteBank + NUM_NOTE_BANKS + direction) % NUM_NOTE_BANKS;
   uiSetNoteBank(noteBank);
 }
@@ -232,6 +235,8 @@ static void shiftNoteBank(int8_t direction)
 static void shiftTrack(int8_t direction)
 {
   currentTrack = (TrackId)((currentTrack + TRACK_COUNT + direction) % TRACK_COUNT);
+  noteBank = 0; // cada instrumento arranca sin transponer (notas 1-4)
+  uiSetNoteBank(noteBank);
   uiShowTrack(currentTrack);
 }
 
@@ -270,8 +275,7 @@ static void handleButtonA(unsigned long now)
     shiftNoteBank(-1);
     break;
   case EVENT_DOUBLE_TAP:
-    shiftNoteBank(+1); // deshace la transposicion del primer tap
-    shiftTrack(+1);
+    shiftTrack(-1); // tambien resetea la transposicion del primer tap
     break;
   case EVENT_HOLD:
     clearCurrentTrack();
@@ -289,8 +293,7 @@ static void handleButtonB(unsigned long now)
     shiftNoteBank(+1);
     break;
   case EVENT_DOUBLE_TAP:
-    shiftNoteBank(-1); // deshace la transposicion del primer tap
-    shiftTrack(-1);
+    shiftTrack(+1); // tambien resetea la transposicion del primer tap
     break;
   case EVENT_HOLD:
     toggleDelay();
