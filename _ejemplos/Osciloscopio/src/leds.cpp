@@ -2,7 +2,6 @@
 #include <math.h>
 
 #include "hardwarePins.h"
-#include "controls.h"
 #include "synth.h"
 
 namespace

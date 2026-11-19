@@ -17,6 +17,6 @@ const short BUTTON_B_PIN = 24;
 const short BUTTON_C_PIN = 25;
 
 // LEDs
-const short LED_BUTTON_PIN[NUM_NOTE_BUTTONS] = {11,10,9,15};
-const short LED_X_PIN[NUM_X_LEDS] = {1,3,6,8};
+const short LED_BUTTON_PIN[NUM_NOTE_BUTTONS] =  {1,3,6,8};
+const short LED_X_PIN[NUM_X_LEDS] = {11,10,9,15};
 const short LED_ESTRELLA_PIN = 19;

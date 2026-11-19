@@ -1,30 +1,23 @@
 #pragma once
-#include "sequence.h"
 
-struct AudioEffects
-{
-    float chorusLevel;
-    float chorusDepth;
-    float chorusLfoFreq;
-    float chorusMaxDelay;
+#include <Arduino.h>
 
-    float reverbLevel;
-    float reverbLiveness;
-    float reverbDamping;
-    float reverbXoverHz;
-
-    bool distType;   // fold o clip
-    float distDrive; // 1.0 = sin drive extra, >1 = más saturación
-    float distMix;   // 0 = dry, 1 = wet total
-
-    float distCrush;
-    float distBits; // ej: 4-8 bits (16 = "sin crush" de profundidad)
-    float distRate; // reducción de sample rate
-};
-extern AudioEffects audioEffects;
+extern float playbackSpeedMin;
+extern float playbackSpeedMax;
+extern float playbackSpeedDeadbandMin;
+extern float playbackSpeedDeadbandMax;
+extern float playbackRateCorrection;
+extern float playbackSpeed;
+extern int8_t playbackDirection;
+extern float playbackVolumeMin;
+extern float playbackVolumeMax;
+extern float playbackVolume;
+extern float outputSampleRateMin;
+extern float outputSampleRateMax;
+extern float outputSampleRateCurve;
+extern uint32_t outputSampleRate;
+extern uint16_t recordingStartDelayMs;
+extern uint16_t playbackSpeedUpdateIntervalMs;
 
 void updateAudioOutput();
 void audioInit();
-void applyEffects();
-float freqFromSemitones(float rootFreq, float semitones);
-float midiNoteToFreq(float note);
