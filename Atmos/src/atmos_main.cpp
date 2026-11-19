@@ -27,7 +27,7 @@ constexpr uint32_t CONTROL_MS = 40;
 constexpr uint32_t DEBOUNCE_MS = 45;
 constexpr uint32_t LONG_PRESS_MS = 750;
 constexpr float TWO_PI_F = 6.28318530718f;
-constexpr int32_t OUTPUT_GAIN = 6;  // Ganancia confirmada en V0.6
+constexpr int32_t OUTPUT_GAIN = 50;  // Ganancia confirmada en V0.6
 constexpr uint32_t ENGINE_CHORD_MS = 1000;
 constexpr uint32_t CHORD_WINDOW_MS = 400;
 
