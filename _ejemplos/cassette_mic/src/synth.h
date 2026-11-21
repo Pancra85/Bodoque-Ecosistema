@@ -18,6 +18,8 @@ extern float outputSampleRateCurve;
 extern uint32_t outputSampleRate;
 extern uint16_t recordingStartDelayMs;
 extern uint16_t playbackSpeedUpdateIntervalMs;
+extern uint16_t playbackCrossfadeMs;
+extern uint8_t LOOP_RECORDING;
 
 void updateAudioOutput();
 void audioInit();
