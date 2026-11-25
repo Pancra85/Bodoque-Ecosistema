@@ -16,6 +16,7 @@ Cada archivo uf2 es un programa diferente.
 
 5- Elegir el programa deseado de la lista. El programa se sube automáticamente. LISTO!
 
+# -*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*-*-*-*-*-
 
 # Guía completa para desarrollar tu propio programa para el Bodoque:
 
