@@ -2,6 +2,7 @@
 1- Bajar la carpeta de los programas del Bodoque: https://github.com/Pancra85/Bodoque-Ecosistema
 
  <img width="625" height="315" alt="image" src="https://github.com/user-attachments/assets/1386783f-ffef-4b23-9cbd-f9b637d71583" />
+ 
 Guardarlos en /Documentos/Platformio/ o en cualquier lugar que gusten.
 2- Dentro de lo que bajamos, vamos a la carpeta …/_drag&drop/. Ahí están todos los programas listos para subir en formato .uf2. 
 Cada archivo uf2 es un programa diferente.
@@ -17,6 +18,7 @@ Cada archivo uf2 es un programa diferente.
 4- Loguearse desde el VSCODE (abajo a la izquierda), crear una cuenta de Github para poder acceder a la inteligencia artificial que viene incluida dentro del VSCODE.
 5- Bajar la carpeta de los programas del Bodoque: https://github.com/Pancra85/Bodoque-Ecosistema
 <img width="625" height="315" alt="image" src="https://github.com/user-attachments/assets/52a5d7c4-27a5-470a-bff9-18a550a66b55" />
+
 Guardarlos en /Documentos/Platformio/ o en cualquier lugar que gusten.
 Esos son todos los programas existentes del Bodoque, más la carpeta _etc/esqueleto vacio que nos va a servir luego como base para nuestra creación.
 6- Abrimos el VSCODE.
@@ -24,6 +26,7 @@ En el Explorador de Windows, buscamos dentro de las carpetas del Ecosistema que 
 Ahora arrastrar esa carpeta "Mi Programa” a la barra izquierda del VSCODE (se llama workspace la barra).
 Con eso logramos cargar el programa a desarrollar en VSCODE.
 <img width="625" height="335" alt="image" src="https://github.com/user-attachments/assets/90291916-90d1-4700-92e4-10aec367f5be" />
+
 7-Una vez cargado, en el workspace vamos a la carpeta \src y ahí adentro, al archivo main.cpp. Ese es el archivo principal de cualquier programa. Ahí están las funciones principales, luego los demás archivos .cpp contienen otras funciones más específicas.
 En el programa de esqueleto, main.cpp no usa ninguna función específica, salvo updateAudioOutput() que está definida en synth.cpp.
 O sea, que nos importa de todo esto? Que para un programa básico hay que darle de contexto a la IA los archivos:
@@ -70,6 +73,7 @@ C- Si sabes lo que estás haciendo con la IA, hacelo como vos soles hacerlo. Tod
 8- Enchufar el Bodoque, prenderlo y apretar UPLOAD en la barra de abajo de todo, tiene un ícono de una flechita hacia la derecha. La primera vez tarda 5 minutos en bajar todo.
 9- En caso de que al tratar de subir el programa falle por no encontrar el Bodoque:
 <img width="625" height="240" alt="image" src="https://github.com/user-attachments/assets/ee1a3e92-dfbf-42e3-ac25-8a7d5970ec25" />
+
 Hay que instalar los drivers USB del RP2040, bajando Zadig y con el Bodoque enchufado por USB, apretar INSTALL DRIVER: https://zadig.akeo.ie/
 
 
