@@ -1,5 +1,6 @@
-<img width="625" height="315" alt="image" src="https://github.com/user-attachments/assets/bf2d1487-cae4-407d-8577-b76c27af9f7a" />#Como cargar un programa del catálogo ecosistema existente de forma simple al Bodoque:
+# Como cargar un programa del catálogo ecosistema existente de forma simple al Bodoque:
 1- Bajar la carpeta de los programas del Bodoque: https://github.com/Pancra85/Bodoque-Ecosistema
+
  <img width="625" height="315" alt="image" src="https://github.com/user-attachments/assets/1386783f-ffef-4b23-9cbd-f9b637d71583" />
 Guardarlos en /Documentos/Platformio/ o en cualquier lugar que gusten.
 2- Dentro de lo que bajamos, vamos a la carpeta …/_drag&drop/. Ahí están todos los programas listos para subir en formato .uf2. 
@@ -9,7 +10,7 @@ Cada archivo uf2 es un programa diferente.
 5- Elegir el programa deseado de la lista. El programa se sube automáticamente. LISTO!
 
 
-#Guía completa para desarrollar tu propio programa para el Bodoque:
+# Guía completa para desarrollar tu propio programa para el Bodoque:
 1- Bajar e instalar VSCODE: https://code.visualstudio.com/download al instalarlo pongan todo que SI así como está
 2- Bajar e instalar el GIT: https://github.com/git-for-windows/git/releases/download/v2.56.1.windows.1/Git-2.56.1-64-bit.exe
 3- Dentro de VSCODE, ir a extensiones (en la barra de la izquierda) y buscar "Platformio IDE"
